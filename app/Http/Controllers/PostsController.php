@@ -35,7 +35,7 @@ class PostsController extends Controller
         return view('post.create');
     }
 //
-    public function store(StorePostRequest $request){
+    public function store(Request $request){
 
         $user = auth()->user();
 
@@ -71,7 +71,7 @@ class PostsController extends Controller
             'post' => $post
         ]);
     }
-    public function update($id, UpdatePostRequest $request){
+    public function update($id, Request $request){
 
         $post = Post::findOrFail($id);
 
