@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\UpdatePostRequest;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -33,7 +35,7 @@ class PostsController extends Controller
         return view('post.create');
     }
 //
-    public function store(Request $request){
+    public function store(StorePostRequest $request){
 
         $user = auth()->user();
 
@@ -69,7 +71,7 @@ class PostsController extends Controller
             'post' => $post
         ]);
     }
-    public function update($id, Request $request){
+    public function update($id, UpdatePostRequest $request){
 
         $post = Post::findOrFail($id);
 
